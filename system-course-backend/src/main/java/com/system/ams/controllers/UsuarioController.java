@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.system.ams.services.UsuarioService;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin("*")
 public class UsuarioController {
 	//declaramos los metodos para las rutas
 	
@@ -27,6 +29,7 @@ public class UsuarioController {
 	
 	@PostMapping("/save")
 	public Usuario saveUser(@RequestBody Usuario user) throws Exception {
+		user.setPerfil("deafult.png")
 		Set<UsuarioRol> roles = new HashSet<>();
 		Rol rol = new Rol();
 		rol.setIdRol(2L);
