@@ -25,7 +25,7 @@ public class UsuarioController {
 	@Autowired
 	private  UsuarioService usuarioService;
 	
-	@PostMapping("/")
+	@PostMapping("/save")
 	public Usuario saveUser(@RequestBody Usuario user) throws Exception {
 		Set<UsuarioRol> roles = new HashSet<>();
 		Rol rol = new Rol();
@@ -38,12 +38,12 @@ public class UsuarioController {
 		return usuarioService.saveUser(user, roles);
 	}
 	
-	@GetMapping("/{username}")
+	@GetMapping("/get/{username}")
 	public Usuario getUser(@PathVariable("username") String username) {
 		return usuarioService.getUser(username);
 	}
 	
-	@DeleteMapping("/{idUser}")
+	@DeleteMapping("/delete/{idUser}")
 	public void deleteUser(@PathVariable("idUser") Long idUser) {
 		usuarioService.deleteUser(idUser);
 	}
