@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/interfaces/User';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +21,10 @@ export class SignupComponent implements OnInit {
     phone: ''
   }
 
-  constructor(private userService:UserService){}
+  constructor(
+    private userService:UserService,
+    private snack: MatSnackBar
+    ){}
 
   ngOnInit(): void {
 
@@ -28,16 +33,22 @@ export class SignupComponent implements OnInit {
   formSubmit(){
     console.log(this.user);
     if(this.user.username == '' || this.user.username == null){
-      alert('El nombre de usuario el requerido')
+      this.snack.open('El nombre de usuario es requerido !!', 'Aceptar',{
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right'
+      })
       return
     }
 
     this.userService.registerUser(this.user).subscribe((data)=>{
       console.log(data)
-      alert('Usuario guardado con exito')
+      Swal.fire('Usuario guardado', 'Usuario registrado con exito en el sistema','success')
     }, (error) =>{
       console.log(error)
-      alert('Ha ocurrido un error en el sistema')
+      this.snack.open('Ha ocurrido un error en el sistema !!', 'Aceptar',{
+        duration: 3000
+      })
     })
   }
 

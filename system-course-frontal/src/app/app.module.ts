@@ -11,11 +11,16 @@ import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 
 
@@ -35,7 +40,9 @@ import { LoginComponent } from './pages/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    SweetAlert2Module 
   ],
   providers: [],
   bootstrap: [AppComponent]
