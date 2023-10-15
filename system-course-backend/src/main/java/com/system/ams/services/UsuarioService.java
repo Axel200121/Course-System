@@ -8,5 +8,9 @@ import com.system.ams.entities.UsuarioRol;
 public interface UsuarioService {
 	
 	public Usuario saveUser(Usuario user, Set<UsuarioRol> userRol) throws Exception;
+	
+	public Usuario getUser(String username); 
+	
+	public void deleteUser(Long idUser);
 
 }

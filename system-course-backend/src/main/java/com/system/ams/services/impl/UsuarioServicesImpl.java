@@ -38,6 +38,16 @@ public class UsuarioServicesImpl implements UsuarioService {
 		}
 		return userLocal;
 	}
+
+	@Override
+	public Usuario getUser(String username) {
+		return userRepository.findByUsername(username);
+	}
+
+	@Override
+	public void deleteUser(Long idUser) {
+		userRepository.deleteById(idUser);
+	}
 	
 
 }
