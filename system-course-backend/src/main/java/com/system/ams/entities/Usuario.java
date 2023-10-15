@@ -3,6 +3,8 @@ package com.system.ams.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -34,6 +36,7 @@ public class Usuario {
 	// fecth(busqueda) -> eager(ansioso)-> trae info de los registros relacionados / lazy(peresos) -> no trae info de los registros relacionados de las entidades relacionadas
 	// mappedBy -> Apunta a la entidad propietaria de la realcion, en este caso es el usuario
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+	@JsonIgnore
 	private Set<UsuarioRol> userRol = new HashSet<>();
 
 	public Long getIdUser() {

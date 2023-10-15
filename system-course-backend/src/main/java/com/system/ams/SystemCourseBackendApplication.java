@@ -14,17 +14,17 @@ import com.system.ams.entities.UsuarioRol;
 import com.system.ams.services.UsuarioService;
 
 @SpringBootApplication
-public class SystemCourseBackendApplication implements CommandLineRunner {
+public class SystemCourseBackendApplication {
 
-	@Autowired
-	private UsuarioService userService;
+	//@Autowired
+	//private UsuarioService userService;
 	
 	public static void main(String[] args) {
 		
 		SpringApplication.run(SystemCourseBackendApplication.class, args);
 	}
 
-	@Override
+	/*@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
@@ -51,6 +51,6 @@ public class SystemCourseBackendApplication implements CommandLineRunner {
 		Usuario userSave = userService.saveUser(user, usuarioRols);
 		System.out.println(userSave.getUsername());
 		
-	}
+	}*/
 
 }
