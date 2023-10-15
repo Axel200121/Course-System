@@ -29,7 +29,7 @@ public class UsuarioController {
 	
 	@PostMapping("/save")
 	public Usuario saveUser(@RequestBody Usuario user) throws Exception {
-		user.setPerfil("deafult.png")
+		user.setPerfil("deafult.png");
 		Set<UsuarioRol> roles = new HashSet<>();
 		Rol rol = new Rol();
 		rol.setIdRol(2L);
