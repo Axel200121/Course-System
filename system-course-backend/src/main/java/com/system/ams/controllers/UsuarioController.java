@@ -30,15 +30,18 @@ public class UsuarioController {
 	@PostMapping("/save")
 	public Usuario saveUser(@RequestBody Usuario user) throws Exception {
 		user.setPerfil("deafult.png");
-		Set<UsuarioRol> roles = new HashSet<>();
+		Set<UsuarioRol> userRoles = new HashSet<>();
+		
 		Rol rol = new Rol();
 		rol.setIdRol(2L);
 		rol.setName("NORMAL");
 		
 		UsuarioRol userRol = new UsuarioRol();
+		userRol.setUser(user);
 		userRol.setRol(rol);
 		
-		return usuarioService.saveUser(user, roles);
+		userRoles.add(userRol);
+		return usuarioService.saveUser(user, userRoles);
 	}
 	
 	@GetMapping("/get/{username}")
